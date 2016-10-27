@@ -2,11 +2,11 @@ ts-equel-db (forked from sequelize-auto-ts)
 =================
 # TL;DR DOC
 
+npm install
 
+node lib/cli.js [dbname] [user] [pass] [outdir] [host]
 
-
-
-
+=> generated ts files are in the ./out folder
 
 
 # ORIGIN DOC
