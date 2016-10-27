@@ -3,7 +3,7 @@
 
 import generator = require("./sequelize-auto-ts");
 import fs = require("fs");
-var prompt = require("prompt");
+let prompt = require("prompt");
 
 if (process.argv.length > 2)
 {
@@ -16,10 +16,10 @@ else
 
 function processFromCommandLines()
 {
-    var args:Array<string> = process.argv.slice(2);
-    var modelFactory:boolean = false;
+    let args:Array<string> = process.argv.slice(2);
+    let modelFactory:boolean = false;
 
-    var i = args.indexOf('-mf');
+    let i = args.indexOf('-mf');
     if (i !== -1) {
         modelFactory = true;
         args.splice(i, 1);
@@ -32,7 +32,7 @@ function processFromCommandLines()
     }
 
 
-    var options:generator.GenerateOptions =
+    let options:generator.GenerateOptions =
     {
         database: args[0],
         username: args[1],
@@ -47,7 +47,7 @@ function processFromCommandLines()
 
 function processFromPrompt()
 {
-    var schema = {
+    let schema = {
         properties: {
             database: { description: "Database name", required: true },
             username: { description: "Username", required: true },

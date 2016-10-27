@@ -1,7 +1,7 @@
 {
     "extends": "tslint:recommended",
     "rules": {
-        "max-line-length": [true, 220],
+        "max-line-length": [false, 520],
         "whitespace": [
             true,
             "check-branch",
@@ -22,8 +22,9 @@
             "parameter"
         ],
         "variable-name": [
-            true,
-            "allow-leading-underscore"
+            false,
+            "allow-leading-underscore",
+            "allow-pascal-case"
         ],
         "use-strict": [
             true

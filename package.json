@@ -3,6 +3,18 @@
   "version": "1.0.10",
   "author": "Emmanuel BOTROS <emmanuel.botros@gmail.com> from a code by Samuel Neff <sam@serndesign.com> https://github.com/samuelneff",
   "description": "Generates Sequelize definition statements and TypeScript interfaces for tables in a database.",
+  "scripts": {
+    "postinstall": "npm run typings:install",
+    "prestart": "npm run build",
+    "build": "npm run clean && npm run build:ts && npm run lint",
+    "watch": "npm run build && concurrently -kr \"npm start\" \"npm run build:watch\"",
+    "build:ts": "tsc",
+    "build:watch": "tsc -w",
+    "clean": "rimraf dist npm-debug.log*",
+    "lint": "tslint --force './src/**/*.ts'",
+    "updatetsconfig": "node ./updatetsconfig.js",
+    "typings:install": "typings install"
+  },
   "keywords": [
     "Sequelize",
     "orm",
@@ -23,7 +35,8 @@
     "script-template": ">=1.0.0",
     "sequelize": "1.7.8",
     "tslint": "^3.15.1",
-    "typescript": "^2.0.6"
+    "typescript": "^2.0.6",
+    "@types/sequelize": "^3.4.32"
   },
   "devDependencies": {
     "jasmine-node": "1.14.3"
