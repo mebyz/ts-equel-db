@@ -1,4 +1,15 @@
-sequelize-auto-ts
+ts-equel-db (forked from sequelize-auto-ts)
+=================
+# TL;DR DOC
+
+
+
+
+
+
+
+
+# ORIGIN DOC
 =================
 
 Generate Sequelize definition statements and compatible TypeScript definitions from a database schema
