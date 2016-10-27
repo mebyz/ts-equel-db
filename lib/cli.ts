@@ -78,9 +78,9 @@ function generate(options:generator.GenerateOptions):void
     console.log("Password: <hidden>");
     console.log("Target  : " + options.targetDirectory);
     console.log("");
-    options.options = {
-        host: options.options.toString()
-    }
+/*    options.options = {
+        host: options.options
+    }*/
     if (!fs.existsSync(options.targetDirectory))
     {
         showHelp();
