@@ -1,6 +1,8 @@
 import * as sequelize from "sequelize"
 
-/*__each__ idFields */ export interface I__fieldNameProperCase__ { __fieldNameProperCase__: number; }
+export interface Buffer {}
+
+/*__each__ idFields */ export interface __fieldNameProperCase__ { __fieldNameProperCase__: number; }
 /*__ignore__*/ export interface I__translatedFieldType__ {}
 /*__ignore__*/ export interface __customFieldType__ {}
 /*__ignore__*/ export interface I__tableNameSingular__Instance {}
