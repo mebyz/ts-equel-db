@@ -1,26 +1,35 @@
 {
-    "name": "sequelize-auto-ts",
-    "version": "1.0.10",
-    "author": "Samuel Neff <sam@serndesign.com> https://github.com/samuelneff",
-    "description": "Generates Sequelize definition statements and TypeScript interfaces for tables in a database.",
-    "keywords": ["Sequelize", "orm", "generate", "template", "script", "typescript"],
-    "homepage": "https://github.com/samuelneff/sequelize-auto-ts",
-    "bugs": "https://github.com/samuelneff/sequelize-auto-ts/issues",
-    "repository" : {
-        "type" : "git",
-        "url" : "https://github.com/samuelneff/sequelize-auto-ts.git"
-    },
-    "dependencies" : {
-        "sequelize": "1.7.8",
-        "script-template" : ">=1.0.0",
-        "prompt": "0.2.13",
-        "mysql" : "2.3.2"
-    },
-    "devDependencies": {
-        "jasmine-node" : "1.14.3"
-    },
-    "license": "MIT",
-    "engines": {
-        "node": ">=0.10.26"
-    }
+  "name": "ts-equel-db",
+  "version": "1.0.10",
+  "author": "Emmanuel BOTROS <emmanuel.botros@gmail.com> from a code by Samuel Neff <sam@serndesign.com> https://github.com/samuelneff",
+  "description": "Generates Sequelize definition statements and TypeScript interfaces for tables in a database.",
+  "keywords": [
+    "Sequelize",
+    "orm",
+    "generate",
+    "template",
+    "script",
+    "typescript"
+  ],
+  "homepage": "https://github.com/mebyz/ts-equel-db",
+  "bugs": "https://github.com/mebyz/ts-equel-db/issues",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mebyz/ts-equel-db.git"
+  },
+  "dependencies": {
+    "mysql": "2.3.2",
+    "prompt": "0.2.13",
+    "script-template": ">=1.0.0",
+    "sequelize": "1.7.8",
+    "tslint": "^3.15.1",
+    "typescript": "^2.0.6"
+  },
+  "devDependencies": {
+    "jasmine-node": "1.14.3"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">=0.10.26"
+  }
 }

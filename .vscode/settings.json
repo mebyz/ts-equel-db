@@ -1,0 +1,32 @@
+// Place your settings in this file to overwrite default and user settings.
+{
+    "typescript.tsdk": "./node_modules/typescript/lib",
+
+    // "files.exclude": {
+    //     "**/.git": true,
+    //     "**/.svn": true,
+    //     "**/.DS_Store": true,
+    //     ".tscache": true,
+    //     "dist": false,
+    //     "node_modules": true,
+    //     "typings": false
+    // },
+
+    // Automatically beautify files on save. Set to true to run for JSON, javascript, html and css. Use array to set indiviaul types to beautify: ["js", "json", "html", "css"]
+    "beautify.onSave": false,
+
+    // Set path/file matchers to ignore when attempting to beautify on save. Uses glob path matching.
+    "beautify.onSaveIgnore": [
+        "**/*+(.|_|-)min.*",
+        "dist/**"
+    ],
+
+    // File extensions that can be beautified as javascript or JSON.
+    "beautify.JSfiles": [
+        "js",
+        "json",
+        "jsbeautifyrc",
+        "jshintrc",
+        "ts"
+    ]
+}

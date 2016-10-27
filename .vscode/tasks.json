@@ -1,0 +1,95 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "0.1.0",
+    "command": "npm",
+    "isShellCommand": true,
+    "showOutput": "always",
+    "suppressTaskName": true,
+    "tasks": [
+        {
+            "taskName": "install",
+            "args": [
+                "install"
+            ]
+        },
+        {
+            "taskName": "build",
+            "isBuildCommand": true,
+            "args": [
+                "run",
+                "build"
+            ],
+            "problemMatcher": [
+                {
+                    "applyTo": "allDocuments",
+                    "owner": "typescript",
+                    "fileLocation": [
+                        "relative",
+                        "${workspaceRoot}"
+                    ],
+                    "pattern": {
+                        "regexp": "^(.*)\\((\\d+,\\d+)\\):\\s+(error|warning).*:\\s(.*)$",
+                        "file": 1,
+                        "location": 2,
+                        "severity": 3,
+                        "message": 4
+                    }
+                },
+                {
+                    "applyTo": "allDocuments",
+                    "owner": "typescript",
+                    "fileLocation": [
+                        "relative",
+                        "${workspaceRoot}"
+                    ],
+                    "severity": "warning",
+                    "pattern": {
+                        "regexp": "^(.+?)\\[(\\d+),\\s(\\d+)\\]:\\s(.*)$",
+                        "file": 1,
+                        "line": 2,
+                        "column": 3,
+                        "message": 4
+                    }
+                }
+            ]
+        },
+        {
+            "taskName": "watch",
+            "isWatching": true,
+            "args": [
+                "run",
+                "build:watch"
+            ],
+            "problemMatcher": [
+                "$tsc-watch"
+            ]
+        },
+        {
+            "taskName": "lint",
+            "args": [
+                "run",
+                "lint"
+            ],
+            "problemMatcher": [
+                {
+                    "applyTo": "allDocuments",
+                    "owner": "typescript",
+                    "fileLocation": [
+                        "relative",
+                        "${workspaceRoot}"
+                    ],
+                    "severity": "warning",
+                    "pattern": {
+                        // For 'verbose' TSLint formatter
+                        "regexp": "^(.+?)\\[(\\d+),\\s(\\d+)\\]:\\s(.*)$",
+                        "file": 1,
+                        "line": 2,
+                        "column": 3,
+                        "message": 4
+                    }
+                }
+            ]
+        }
+    ]
+}
