@@ -12,12 +12,12 @@ export let SEQUELIZE: Sequelize.Sequelize;
 /*__ignore__*/ let __firstTableName__: Sequelize.Model<any, any>;
 /*__ignore__*/ let __secondTableName__: Sequelize.Model<any, any>;
 /*__ignore__*/ let __associationNameQuoted__: string;
-export function initialize(database: string, username: string, password: string, options: Sequelize.Options): any {
+export function initialize(s: any): any {
     if (initialized) {
         return;
     }
 
-    SEQUELIZE = new Sequelize(database, username, password, options);
+    SEQUELIZE = s
 
 /*__startEach__ tables */
 
@@ -31,5 +31,4 @@ export function initialize(database: string, username: string, password: string,
         });
 /*__endEach__*/
 
-    // return exports;
 }
