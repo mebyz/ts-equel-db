@@ -26,6 +26,7 @@ export function initialize(s: any): any {
         },
         {
             timestamps: false,
+            freezeTableName: true,
             classMethods: {
             }
         });
