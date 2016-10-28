@@ -163,7 +163,8 @@ export class Table
 
     public tableNameSingular():string
     {
-        return Sequelize.Utils.singularize(this.tableName, "en");
+        return this.tableName
+//        return Sequelize.Utils.singularize(this.tableName, "en");
     }
 
     public tableNameSingularCamel():string
@@ -608,7 +609,7 @@ export function read(database:string, username:string, password:string, options:
                                             row.referenced_table_name,
                                             row.table_name,
                                             associationName,
-                                            util.camelCase(Sequelize.Utils.singularize(row.referenced_table_name)) + toTitleCase(Schema.idSuffix),
+                                            util.camelCase((row.referenced_table_name)) + toTitleCase(Schema.idSuffix),
                                             row.column_name,
                                             false,
                                             schema));
@@ -646,13 +647,13 @@ export function read(database:string, username:string, password:string, options:
 
                 firstTable.fields.push(new Field(
                     util.camelCase(xref.secondTableName),
-                    Sequelize.Utils.singularize(xref.secondTableName) + 'Pojo[]',
+                    (xref.secondTableName) + 'Pojo[]',
                     firstTable,
                     true));
 
                 secondTable.fields.push(new Field(
                     util.camelCase(xref.firstTableName),
-                        Sequelize.Utils.singularize(xref.firstTableName) + 'Pojo[]',
+                        (xref.firstTableName) + 'Pojo[]',
                     secondTable,
                     true));
 
@@ -681,7 +682,7 @@ export function read(database:string, username:string, password:string, options:
             }
 
             tableNamesManyForms.push(table.tableName);
-            tableNamesManyForms.push(Sequelize.Utils.singularize(table.tableName));
+            tableNamesManyForms.push((table.tableName));
         }
 
         function fixViewName(table:Table, index:number, array:Table[]):void {
@@ -748,7 +749,7 @@ export function read(database:string, username:string, password:string, options:
 
             schema.references.push(reference);
 
-            var otherTableSingular:string = Sequelize.Utils.singularize(otherTableName, 'en');
+            var otherTableSingular:string = (otherTableName, 'en');
 
             view.fields.push(new Field(
                 otherTableSingular,
@@ -758,7 +759,7 @@ export function read(database:string, username:string, password:string, options:
 
             otherTable.fields.push(new Field(
                 util.camelCase(view.tableName),
-                Sequelize.Utils.singularize(view.tableName, 'en') + 'Pojo[]',
+                (view.tableName, 'en') + 'Pojo[]',
                 otherTable,
                 true));
 
