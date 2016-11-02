@@ -217,12 +217,12 @@ export class Field
 
     }
 
-    fieldNameProperCase():string
+    public fieldNameProperCase():string
     {
         return toTitleCase(this.fieldName);
     }
 
-    translatedFieldType():string
+    public translatedFieldType():string
     {
         var fieldType:string = this.fieldType;
         var translated:string = Schema.fieldTypeTranslations[fieldType];
@@ -247,7 +247,7 @@ export class Field
         return translated;
     }
 
-    sequelizeFieldType():string
+    public sequelizeFieldType():string
     {
         var translated:string = Schema.fieldTypeSequelize[this.fieldType];
         if (translated == undefined) {
@@ -257,11 +257,11 @@ export class Field
         return translated;
     }
 
-    isIdField():boolean {
+    public isIdField():boolean {
         return this.targetIdFieldType != undefined || Boolean(this.table.schema.idFieldLookup[this.fieldName]);
     }
 
-    customFieldType():string
+    public customFieldType():string
     {
         return this.isIdField()
             ? (this.targetIdFieldType == undefined ? this.fieldNameProperCase() : this.targetIdFieldType)
@@ -270,10 +270,14 @@ export class Field
                 : this.translatedFieldType();
     }
 
-    defineFieldType():string {
-        if ( this == this.table.fields[0]) {
-            return '{type: Sequelize.INTEGER, primaryKey: true, autoIncrement: true}';
-        } else if (this.table.tableName.substr(0,4) == 'Xref' && this == this.table.fields[1]) {
+    public defineFieldType(): string {
+        if (this === this.table.fields[0]) {
+            if (this.table.fields[0].fieldType === "datetime") {
+                return "{primaryKey: true,autoIncrement: true,type: DataTypes.DATE,allowNull: false}"
+            } else {
+            return "{type: Sequelize.INTEGER, primaryKey: true, autoIncrement: true}"
+            }
+        } else if (this.table.tableName.substr(0,4) === "Xref" && this === this.table.fields[1]) {
             return '{type: "number", primaryKey: true}';
         }
         return this.sequelizeFieldType();
@@ -334,8 +338,6 @@ export class Xref {
 
     public firstTableNameCamel():string
     {
-        console.log(toCamelCase(this.firstTableName))
-        
         return toCamelCase(this.firstTableName);
     }
 
