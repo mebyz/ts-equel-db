@@ -273,7 +273,7 @@ export class Field
     public defineFieldType(): string {
         if (this === this.table.fields[0]) {
             if (this.table.fields[0].fieldType === "datetime") {
-                return "{primaryKey: true,autoIncrement: true,type: DataTypes.DATE,allowNull: false}"
+                return "{primaryKey: true,autoIncrement: true,type: Sequelize.DATE,allowNull: false}"
             } else {
             return "{type: Sequelize.INTEGER, primaryKey: true, autoIncrement: true}"
             }
